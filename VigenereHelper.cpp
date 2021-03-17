@@ -1,4 +1,7 @@
 #include "Vigenere.h"
+#include <vector>
+#include <string>
+#include <sstream>
 using namespace std;
 /**makeKey - generate a new key
  * equal to length of orginial input

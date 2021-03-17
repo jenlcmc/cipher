@@ -1,4 +1,4 @@
-#include "menuFunction.cpp"
+#include "menu.h"
 
 int main(){
     Menu();

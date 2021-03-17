@@ -1,4 +1,7 @@
 #include "Vigenere.h"
+#include <iostream>
+#include <string>
+#include <fstream>
 using namespace std;
 
 /**VigenereMenu - user interface
