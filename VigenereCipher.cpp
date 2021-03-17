@@ -29,7 +29,8 @@ void VigenereMenu(){
     {
     //encrypt choice
     case 'E':
-        cout << "Please enter messages you want to encrypt. Please no whitespace/space '\n";
+    do{
+        cout << "Please enter messages you want to encrypt. Please no whitespace/space \n";
         cin >> messages;
         cout << "Please also enter the key you want to generate. Please no whitespace/space\n";
         cin >> key;
@@ -52,32 +53,12 @@ void VigenereMenu(){
         //ask user if they want to continue or not
         cout << "(Q/q) to quit and (C/c) for continue another encrypt" << endl;
         cin >> answer;
-        while(answer == 'c' || answer == 'C'){
-            cout << "Please enter messages you want to encrypt. Please no whitespace/space'\n";
-            cin >> messages;
-            cout << "Please also enter the key you want to generate. Please no whitespace/space \n";
-            cin >> key;
-            newKey = makeKey(Uppercase(messages), Uppercase(key));
-            encryptMessages = Encrypt(Uppercase(messages), Uppercase(newKey));
-            
-            cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
-            cin >> answer;
-            if(answer == 'y' || answer == 'Y'){
-                newfile << "key for the file: " << newKey << '\n';
-                newfile << "encrypt message: " << encryptMessages << endl;
-		    }
-            if(answer == 'n' || answer == 'N'){
-                cout <<"key for the decrypt: " << newKey << endl;
-                cout << encryptMessages << endl;
-		    
-            }
-            cout << "(Q/q) to quit and (C/c) for continue another encrypt" << endl;
-            cin >> answer;
-        }
+    }while(answer == 'c' || answer == 'C');
     break;
 
     //decrypt choice
     case 'D':
+    do{
         cout << "Please enter messages you want to decrypt. Please no whitespace/space '\n";
         cin >> encryptMess;
         cout << "Please also enter the key. Please no whitespace/space\n";
@@ -98,25 +79,7 @@ void VigenereMenu(){
         //ask user if they want to continue or not
         cout << "(Q/q) to quit and (C/c) for continue another decrypt" << endl;
         cin >> answer;
-        while(answer == 'c' || answer == 'C'){
-            cout << "Please enter messages you want to decrypt. Please no whitespace/space'\n";
-            cin >> encryptMess;
-            cout << "Please also enter the key. Please no whitespace/space\n";
-            cin >> UserKey;
-
-            decryptMess = Decrypt(Uppercase(encryptMess), Uppercase(UserKey));
-
-            cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
-            cin >> answer;
-            if(answer == 'y' || answer == 'Y'){
-                DecryptFile << "Decrypt message: " << decryptMess << '\n';
-		    }
-            if(answer == 'n' || answer == 'N'){
-                DecryptFile << "Decrypt message: " << decryptMess << '\n';
-		    }
-            cout << "(Q/q) to quit and (C/c) for continue another encrypt" << endl;
-            cin >> answer;
-        }
+    }while(answer == 'c' || answer == 'C');
     break;
 
     //if user choice q, then quit the program
