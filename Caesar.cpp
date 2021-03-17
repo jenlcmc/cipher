@@ -19,7 +19,6 @@ std::vector<char> caesar::encrypt(std::vector<char> en, int k){
             en[i] = ch;
         }
     }
-
     return en;
 }
 
@@ -44,34 +43,20 @@ std::vector<char> caesar::reverseOrder(std::vector<char> vec){
     return vec;
     
 }
+// void set_message(std::string str){
+//     std::cout << "Enter message: ";
+// //    std::string message; 
+//     std::getline(std::cin, message);
+//     message = str;
+// }
+// std::string caesar::get_message(){
+//     return message;    
+// }
 
-
-
-int caesar::get_user_input(){
-    int input {0};
-    std::cout << "Choose\n1 - Encrypt, 2 - Decrypt\n";
-    std::cin >> input;
-    do{
-        std::cout << "Invalid Input. Please choose between 1-2";
-        std::cin >> input;       
-    }while(input < 0 || input > 2);
-    return input;
-}
-
-std::string caesar::get_message(){
-    std::string message; 
-    std::getline(std::cin, message);
-//    std::stringstream ss(message);
-
-    /* conver tochar */
-
-    return message;    
-}
-
-std::vector<char> caesar::convert_str_to_char(std::string s){
+std::vector<char> caesar::convert_str_to_char(std::string str){
     std::vector<char> ch; 
-    for(auto i = 0;i > s.length(); ++i){
-        ch.push_back(i);
+    for(auto i = 0;i < str.length(); ++i){
+        ch.push_back(str[i]);
     }
     return ch;
 }
@@ -81,16 +66,58 @@ static void caesar::menu(){
     std::cout << "-------------------" << std::endl;
 
     std::cout <<"1. Encrypt\n"
-        << "2. Decrypt\n" << std::endl;
-}
+        << "2. Decrypt\n";
 
+}
+/* input validation */
+
+int caesar::get_shift(int shift){
+
+    while(shift > 26 || shift < 0){
+        std::cout << "Enter a value between 1-26 ";
+        std::cin >> shift;
+    }
+    return shift;
+}
+int caesar::user_choice(int input){
+    while(input> 26 || input < 0){
+        std::cout << "Enter a value between 1-26 ";
+        std::cin >> input;
+    }
+    return input;   
+}
+/* RUN PROGRAM */
 void caesar::run_program(){
     caesar::menu();
-    get_message();
-   // caesar::get_user_input();
-    std::string uInput = caesar::get_message();
+    int input, shift;
+    std::cin >> input;
+    std::cin.get();
+    input = user_choice(input);
+    
+    std::cout << "Enter a shift value between 0-26: ";
+    std::cin >> shift;
+    std::cin.get();
+    shift = get_shift(shift);
 
-    std::vector<char> vInut = caesar::convert_str_to_char(uInput) ;
+    std::string message;
+    std::cout << "Enter your message:\n";
 
+    std::getline(std::cin, message);
+    std::cout << message << std::endl;
+
+    std::vector<char> cMessage = convert_str_to_char(message);
+    if(input == 1){
+        std::cout << "Encrypt\n";
+        std::vector<char> vMessage = encrypt(cMessage, shift);
+        for(auto i : vMessage){
+            std::cout << i;
+        } std::cout <<std::endl;
+    } else if(input == 2){
+        std::cout << "Decrypt\n";
+        std::vector<char> vMessage = decrypt(cMessage, shift);
+        for(auto i : cMessage){
+            std::cout << i;
+        } std::cout <<std::endl;
+    }
 
 }
