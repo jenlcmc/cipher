@@ -1,4 +1,4 @@
-#include "VigenereHelper.cpp"
+#include "Vigenere.h"
 using namespace std;
 
 /**VigenereMenu - user interface

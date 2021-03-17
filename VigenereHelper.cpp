@@ -1,10 +1,5 @@
-#include <iostream>
-#include <vector>
-#include <string>
-#include <sstream>
-#include <fstream>
+#include "Vigenere.h"
 using namespace std;
-
 /**makeKey - generate a new key
  * equal to length of orginial input
  * string UnserInput - input from the user

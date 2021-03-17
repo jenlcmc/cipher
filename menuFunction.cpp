@@ -1,4 +1,4 @@
-#include "VigenereCipher.cpp"
+#include "Vigenere.h"
 #include "caesar.cpp"
 using namespace caesar;
 void Menu(){
