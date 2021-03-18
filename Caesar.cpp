@@ -71,17 +71,16 @@ static void caesar::menu(){
 }
 /* input validation */
 
-int caesar::get_shift(int shift){
-
-    while(shift > 26 || shift < 0){
+int caesar::get_key(int key){
+    while(key > 26 || key < 0){
         std::cout << "Enter a value between 1-26 ";
-        std::cin >> shift;
+        std::cin >> key;
     }
-    return shift;
+    return key;
 }
 int caesar::user_choice(int input){
-    while(input> 26 || input < 0){
-        std::cout << "Enter a value between 1-26 ";
+    while(input > 2 || input < 0){
+        std::cout << "Enter a value between 1-2 ";
         std::cin >> input;
     }
     return input;   
@@ -89,15 +88,15 @@ int caesar::user_choice(int input){
 /* RUN PROGRAM */
 void caesar::run_program(){
     caesar::menu();
-    int input, shift;
+    int input, key;
     std::cin >> input;
     std::cin.get();
     input = user_choice(input);
     
-    std::cout << "Enter a shift value between 0-26: ";
-    std::cin >> shift;
+    std::cout << "Enter a key value between 0-26: ";
+    std::cin >> key;
     std::cin.get();
-    shift = get_shift(shift);
+    key = get_key(key);
 
     std::string message;
     std::cout << "Enter your message:\n";
@@ -108,13 +107,13 @@ void caesar::run_program(){
     std::vector<char> cMessage = convert_str_to_char(message);
     if(input == 1){
         std::cout << "Encrypt\n";
-        std::vector<char> vMessage = encrypt(cMessage, shift);
+        std::vector<char> vMessage = encrypt(cMessage, key);
         for(auto i : vMessage){
             std::cout << i;
         } std::cout <<std::endl;
     } else if(input == 2){
         std::cout << "Decrypt\n";
-        std::vector<char> vMessage = decrypt(cMessage, shift);
+        std::vector<char> vMessage = decrypt(cMessage, key);
         for(auto i : cMessage){
             std::cout << i;
         } std::cout <<std::endl;

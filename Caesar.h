@@ -12,7 +12,7 @@ namespace caesar{
     void set_message(std::string);
     std::vector<char> convert_str_to_char(std::string);
     static void menu();
-    int get_shift(int);
+    int get_key(int);
     int user_choice(int);
     void run_program();
 
