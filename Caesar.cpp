@@ -7,6 +7,8 @@
 #include <sstream>
 #include <ostream>
 
+
+/* encrypts message using all lower case   */
 std::vector<char> caesar::encrypt(std::vector<char> en, int k){
     char ch;
     for(auto i = 0; en[i] != '\0'; ++i){
@@ -22,6 +24,8 @@ std::vector<char> caesar::encrypt(std::vector<char> en, int k){
     return en;
 }
 
+
+/* decrypts letter with lowercase */
 std::vector<char> caesar::decrypt(std::vector<char> dc, int k){
     char ch = 0;
     for(auto i = 0; dc[i] != '\0'; ++i){
@@ -70,7 +74,6 @@ static void caesar::menu(){
 
 }
 /* input validation */
-
 int caesar::get_key(int key){
     while(key > 26 || key < 0){
         std::cout << "Enter a value between 1-26 ";
@@ -101,17 +104,18 @@ void caesar::run_program(){
     std::string message;
     std::cout << "Enter your message:\n";
 
-    std::getline(std::cin, message);
+    std::getline(std::cin, message); //get message with string
     std::cout << message << std::endl;
 
-    std::vector<char> cMessage = convert_str_to_char(message);
-    if(input == 1){
+    std::vector<char> cMessage = convert_str_to_char(message); //converts string message to char
+
+    if (input == 1){
         std::cout << "Encrypt\n";
         std::vector<char> vMessage = encrypt(cMessage, key);
         for(auto i : vMessage){
             std::cout << i;
         } std::cout <<std::endl;
-    } else if(input == 2){
+    } else if (input == 2){
         std::cout << "Decrypt\n";
         std::vector<char> vMessage = decrypt(cMessage, key);
         for(auto i : cMessage){
