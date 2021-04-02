@@ -13,6 +13,8 @@ string Encrypt(string input, unsigned int key){
     string mess = input;
     char stringChar;
     for(int i = 0; mess[i] != '\0'; i++){
+        //if mess[i] is true then, 1st letter is a. 
+        //if not, 1st letter is A
         char firstLetter = islower(mess[i]) ? 'a' : 'A';
         unsigned int alpha = mess[i] - firstLetter;
         unsigned int newAlpha = alpha + key;
@@ -37,6 +39,8 @@ string Decrypt(string input, unsigned int key){
         if(mess[i] ==' '){
             continue;
         }
+        //if mess[i] is true then, 1st letter is a. 
+        //if not, 1st letter is A
         char firstLetter = islower(mess[i]) ? 'a' : 'A';
         unsigned int alpha = mess[i] - firstLetter;
         //result for newalpha can be negative so have to check value
