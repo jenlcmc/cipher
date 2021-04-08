@@ -8,6 +8,7 @@ namespace caesar{
     std::string encrypt(std::string&, int);
     std::string decrypt(std::string&, int);
     std::string remove_space (std::string&);
+    int create_file(std::string&,int);
     void run_program();
 
 };

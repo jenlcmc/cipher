@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
-#include <ostream>
+#include <fstream>
 
 
 void caesar::run_program(){
@@ -24,9 +24,12 @@ void caesar::run_program(){
         p1 = caesar::encrypt(message, shift);
         p2 = caesar::decrypt(p1, shift);
         std::cout << "Encode: " << p1 << std::endl;
+        caesar::create_file(p1,shift);
+
     } else if(choice == 2) {
         p2 = caesar::decrypt(message, shift);
         std::cout  << "Decode: "<< p2 << std::endl;
+        caesar::create_file(p2, shift);
     }
 }
 
@@ -51,3 +54,18 @@ std::string caesar::remove_space(std::string& message){
     message.erase(std::remove(message.begin(), message.end(), ' '), message.end());
     return message;
 }
+
+//write into a file
+int caesar::create_file(std::string& message,int shift){
+    std::ofstream opf {"ccenc.txt"};
+
+    if(!opf)
+    {
+        std::cerr << "File could not be found\n"; return 1; 
+    }
+    
+    opf << message << '\n';
+    opf << shift << '\n';
+    return 0;
+}
+
