@@ -1,4 +1,4 @@
-#include "Vigenere.h"
+#include "vigenere.h"
 using namespace std;
 
 /**makeKey - generate a new key
@@ -9,7 +9,7 @@ using namespace std;
  * Algorithm - generate key until the key length not equal to orginal input
 **/
 
-string makeKey(string UserInput, string key){
+string vigenere::makeKey(string UserInput, string key){
     int UserSize = UserInput.length();
 
     for(int i = 0; ; i++){
@@ -35,7 +35,7 @@ string makeKey(string UserInput, string key){
  * length of open text)
  * m- length of alphabet
 **/
-string Encrypt(string input, string key){
+string vigenere::Encrypt(string input, string key){
     string EncryptedMess; 
     
     for(int i = 0; i < input.length(); i++){
@@ -60,7 +60,7 @@ string Encrypt(string input, string key){
  * length of open text)
  * m- length of alphabet
 **/
-string Decrypt(string input, string key){
+string vigenere::Decrypt(string input, string key){
     string Decrypted;
     
     for(int i = 0; i < input.length(); i++){
@@ -81,7 +81,7 @@ string Decrypt(string input, string key){
 	Algorithm- using for loop to loop through the string and then user another var to hold uppercase of the string
 	After that, return the uppercase value
 */
-string Uppercase(string input){
+string vigenere::Uppercase(string input){
 	string value;
     for(unsigned int i = 0; i < input.length(); i++){
         value += toupper(input[i]);
@@ -92,7 +92,7 @@ string Uppercase(string input){
 /**VigenereMenu - user interface
  * return void
 */
-void VigenereMenu(){
+void vigenere::VigenereMenu(){
     char answer;
     char choice;
     string messages;

@@ -1,5 +1,6 @@
-#include "subHelper.h"
+#include "subcipher.h"
 
+using namespace std;
 /**Encrypt- shift each character the user input by key letter
  * string input - user input
  * unsigned int key - key to shift character by key letters
@@ -9,7 +10,7 @@
  *  En(x) = (x + n) % 26;
  * This cipher is also a improve version of Caesar cipher
  */
-string Encrypt(string input, unsigned int key){
+string sub::Encrypt(string input, unsigned int key){
     string mess = input;
     char stringChar;
     for(int i = 0; mess[i] != '\0'; i++){
@@ -32,7 +33,7 @@ string Encrypt(string input, unsigned int key){
  *  En(x) = (x - n) % 26;
  * This cipher is also a improve version of Caesar cipher
  */
-string Decrypt(string input, unsigned int key){
+string sub::Decrypt(string input, unsigned int key){
     string mess = input;
     char stringChar;
     for(int i = 0; mess[i] != '\0'; i++){
@@ -57,7 +58,7 @@ string Decrypt(string input, unsigned int key){
 /**VigenereMenu - user interface
  * return void
 */
-void SubMenu(){
+void sub::SubMenu(){
     string messages;
     string encrypted;
     string decrypted;

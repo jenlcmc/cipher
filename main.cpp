@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include "Caesar.h"
-#include "SubCipher.h"
-#include "SubCipher.cpp"
-#include "Vigenere.cpp"
-#include "Vigenere.h"
+#include "caesar.h"
+#include "subcipher.h"
+//#include "subcipher.cpp"
+//#include "vigenere.cpp"
+#include "vigenere.h"
 
 static void help();
 
@@ -21,13 +21,13 @@ int main(int argc, char** argv){
 
     switch (userChoice){
         case 'v':
-            VigenereMenu();
+            vigenere::VigenereMenu();
             break;
         case 'c':
             caesar::run_program();
             break;
         case 's':
-            SubMenu();
+            sub::SubMenu();
             break;
         default:
             help();

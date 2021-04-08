@@ -1,0 +1,18 @@
+Cipher: caesar.o subcipher.o viegenere.o  main.o
+	g++ caesar.o subcipher.o vigenere.o  main.o -Wall -pedantic -o Cipher 
+
+caesar: caesar.cpp
+	g++ -c caesar.cpp
+
+subcipher: subcipher.cpp
+	g++ -c subcipher.cpp
+
+vigenere: vigenere.cpp
+	g++ -c vigenere.cpp
+
+main: main.cpp
+	g++ -c main.cpp
+
+clean:
+	rm *.o
+	rm Cipher 
