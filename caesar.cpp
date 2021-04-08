@@ -13,7 +13,8 @@ void caesar::run_program(){
     int choice {}, shift {};
     std::string message, p1, p2;
 
-    std::cout << "Enter message followed by (1)Encode or (2)Decode, and shift/key value "; 
+    std::cout << "\tEnter message followed by:\n\n\t(1)Encode or (2)Decode\n\n"
+            << "\tShift/key value(1-26)\n"; 
     std::getline(std::cin, message);
     std::cin >> choice >> shift;
  
@@ -24,12 +25,12 @@ void caesar::run_program(){
         p1 = caesar::encrypt(message, shift);
         p2 = caesar::decrypt(p1, shift);
         std::cout << "Encode: " << p1 << std::endl;
-        caesar::create_file(p1,shift);
+        caesar::create_file(p1,shift); std::cout << std::endl; //flushes buffer when creating a file
 
     } else if(choice == 2) {
         p2 = caesar::decrypt(message, shift);
         std::cout  << "Decode: "<< p2 << std::endl;
-        caesar::create_file(p2, shift);
+        caesar::create_file(p2, shift); std::cout << std::endl;
     }
 }
 
@@ -37,9 +38,9 @@ std::string caesar::encrypt(std::string& message, int shift){
     std::string vals{""}; 
     for(auto i = 0; i < message.length(); ++i){
         if(isupper(message[i])){
-            vals += char(int(message[i] + shift - 65)%26 + 65);
+            vals += char(int(message[i] + shift - 65)%26 + 65); //converts integers to char values
         } else {
-            vals += char(int(message[i] + shift - 97)%26 + 97);
+            vals += char(int(message[i] + shift - 97)%26 + 97);  //and addes them into the string
         }
     }
     return vals;
@@ -57,7 +58,7 @@ std::string caesar::remove_space(std::string& message){
 
 //write into a file
 int caesar::create_file(std::string& message,int shift){
-    std::ofstream opf {"ccenc.txt"};
+    std::ofstream opf {"./Text_Files/dearjane.txt"};
 
     if(!opf)
     {
