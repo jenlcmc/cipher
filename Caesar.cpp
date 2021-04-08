@@ -11,14 +11,14 @@
 
 void caesar::run_program(){
     int choice {}, shift {};
-    std::string message;
-    std::cout << "Message followed by (1)Encode or (2)Decode, and shift "; 
+    std::string message, p1, p2;
+
+    std::cout << "Enter message followed by (1)Encode or (2)Decode, and shift/key value "; 
     std::getline(std::cin, message);
-    std::cin >> choice;
-    std::cin >> shift; 
-    std::string p1, p2;
-    message = remove_space(message);
-    std::cout <<message << std::endl;
+    std::cin >> choice >> shift;
+ 
+    message = remove_space(message); //remove spaces 
+    std::cout <<message << std::endl; //print message
 
     if(choice == 1) {        
         p1 = caesar::encrypt(message, shift);
@@ -29,6 +29,7 @@ void caesar::run_program(){
         std::cout  << "Decode: "<< p2 << std::endl;
     }
 }
+
 std::string caesar::encrypt(std::string& message, int shift){
     std::string vals{""}; 
     for(auto i = 0; i < message.length(); ++i){
@@ -43,9 +44,9 @@ std::string caesar::encrypt(std::string& message, int shift){
 
 std::string caesar::decrypt(std::string& message, int shift){
     shift%=26;
-//    stdstring dec = encrypt(message, 26 - shift);
     return caesar::encrypt(message, 26 - shift);
 }
+
 std::string caesar::remove_space(std::string& message){
     message.erase(std::remove(message.begin(), message.end(), ' '), message.end());
     return message;

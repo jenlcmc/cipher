@@ -1,0 +1,10 @@
+Welcome to cipher text
+To try Caesar Cipher. Enter C/c
+To try Vigenere Cipher. Enter V/v
+To try Subtitution cipher. Enter S/s
+Ceasar Cipher Menu
+-------------------
+1. Encode
+2. Decode
+Choose between 1 and 2: Enter a key value between 0-26: Enter your message:
+ jeve bwnw
