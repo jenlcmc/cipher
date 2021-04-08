@@ -12,7 +12,7 @@
 void caesar::run_program(){
     int choice {}, shift {};
     std::string message;
-    std::cout << "Encode or Decode followed by message choice, and shift "; 
+    std::cout << "Message followed by (1)Encode or (2)Decode, and shift "; 
     std::getline(std::cin, message);
     std::cin >> choice;
     std::cin >> shift; 
@@ -23,15 +23,11 @@ void caesar::run_program(){
     if(choice == 1) {        
         p1 = caesar::encrypt(message, shift);
         p2 = caesar::decrypt(p1, shift);
-    } else {
-        p2 = caesar::decrypt(p1, shift);
+        std::cout << "Encode: " << p1 << std::endl;
+    } else if(choice == 2) {
+        p2 = caesar::decrypt(message, shift);
+        std::cout  << "Decode: "<< p2 << std::endl;
     }
-    p1 = caesar::encrypt(message, shift);
-
-    std::cout << "Encode: " << p1 << std::endl;
-    p2 = caesar::decrypt(p1, shift);
-    std::cout  << "Decode: "<< p2 << std::endl;
-
 }
 std::string caesar::encrypt(std::string& message, int shift){
     std::string vals{""}; 
