@@ -1,9 +1,9 @@
 #include <iostream>
 #include <vector>
 #include "Caesar.h"
-#include "subHelper.h"
-#include "subHelper.cpp"
-#include "VigenereHelper.cpp"
+#include "SubCipher.h"
+#include "SubCipher.cpp"
+#include "Vigenere.cpp"
 #include "Vigenere.h"
 
 static void help();
