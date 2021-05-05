@@ -2,7 +2,7 @@
 
 ## Requirements 
 
-- gdb compiler
+- gcc compiler
 - C++ 11 and above
 
 To run: 
