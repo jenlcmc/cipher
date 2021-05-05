@@ -7,8 +7,7 @@
 static void help();
 
 int main(int argc, char** argv){
-    char userChoice {};
-    userChoice = tolower(userChoice); // lowers chances for case input error
+    char userChoice;
 
     std::cout << "Welcome to cipher text" << endl;
     std::cout << "Caesar Cipher. Enter C/c" << endl;
@@ -16,6 +15,8 @@ int main(int argc, char** argv){
     std::cout << "Subtitution cipher. Enter S/s" << endl;
 
     std::cin >> userChoice; std::cin.get();
+    userChoice = tolower(userChoice); // lowers chances for case input error
+
 
     switch (userChoice){
         case 'v':
