@@ -17,6 +17,6 @@ Should produce a main file if not already in folder:
     
 ## Known Issues
 
-_issues with using {} initialization on llvm/lldb compilers_
+_issues with using {} initialization on OSX compilers that does not use GDB_
 
 _untested with MSVC compilers_
