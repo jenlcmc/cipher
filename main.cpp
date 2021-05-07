@@ -7,8 +7,8 @@
 static void help();
 
 int main(int argc, char** argv){
-    char userChoice {}; //not work on mac
-    //char userChoice;
+    //char userChoice {}; //not work on mac
+    char userChoice;
     userChoice = tolower(userChoice); // lowers chances for case input error
 
     std::cout << "Welcome to cipher text" << std::endl;

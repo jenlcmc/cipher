@@ -132,9 +132,9 @@ void vigenere::VigenereMenu(){
     //encrypt choice
     case 'E':
     do{
-        std::cout << "Please enter messages you want to encrypt.\n";
+        std::cout << "Please enter messages you want to encrypt. No space\n";
         std::cin >> messages;
-        std::cout << "Please also enter the key you want to generate.\n";
+        std::cout << "Please also enter the key you want to generate.  No space\n";
         std::cin >> key;
         //remove whitespace
         messages = remove_space(messages);
@@ -164,9 +164,9 @@ void vigenere::VigenereMenu(){
     //decrypt choice
     case 'D':
     do{
-        std::cout << "Please enter messages you want to decrypt. \n";
+        std::cout << "Please enter messages you want to decrypt.  No space\n";
         std::cin >> encryptMess;
-        std::cout << "Please also enter the key. \n";
+        std::cout << "Please also enter the key. No space \n";
         std::cin >> UserKey;
 
         encryptMess = remove_space(encryptMess);
