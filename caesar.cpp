@@ -1,14 +1,5 @@
 #include "caesar.h"
 
-#include <cctype>
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <string>
-#include <sstream>
-#include <fstream>
-
-
 void caesar::run_program(){
     int choice = 0, shift = 0;
     std::string message, p1, p2;
@@ -58,7 +49,7 @@ std::string caesar::remove_space(std::string& message){
 
 //write into a file
 int caesar::create_file(std::string& message,int shift){
-    std::ofstream opf {"./Text_Files/dearjane.txt"};
+    std::ofstream opf {"./Text_Files/binary.txt"};
 
     if(!opf)
     {
@@ -70,3 +61,32 @@ int caesar::create_file(std::string& message,int shift){
     return 0;
 }
 
+/* reverse program */
+void caesar::run_reverse(){
+    /* using getline and stringstream for continuous input
+    with spaces; ss for easier conversion of string to char */
+    std::string line;
+    std::stringstream ss(line);
+    std::vector<char> vec;
+    std::getline(std::cin, line);
+    
+    /* pushes string into char vector */
+    for(auto i = 0; i < line.length(); ++i){
+        vec.push_back(line[i]);
+    }
+
+    std::vector<char> rev = reverse_message(vec);
+
+    for(auto i : rev){
+        std::cout << i;
+    }std::cout << std::endl;
+    /* TODO
+    create another function to print chars/convert to str
+    to save to file
+     */
+}
+
+std::vector<char> caesar::reverse_message(std::vector<char>& ch){
+    std::reverse(ch.begin(), ch.end());
+    return ch;
+}

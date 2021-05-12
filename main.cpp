@@ -9,10 +9,13 @@ static void help();
 int main(int argc, char** argv){
     char userChoice;
 
-    std::cout << "Welcome to cipher text" << endl;
+    //one of the files is using namespace std
+    //no errors with endl (not std::endl);
+    std::cout << "Welcome to cipher text" << endl; 
     std::cout << "Caesar Cipher. Enter C/c" << endl;
     std::cout << "Vigenere Cipher. Enter V/v" << endl;
     std::cout << "Subtitution cipher. Enter S/s" << endl;
+    std::cout << "Reverse Cipher. (R/r)" << endl;
 
     std::cin >> userChoice; std::cin.get();
     userChoice = tolower(userChoice); // lowers chances for case input error
@@ -27,6 +30,9 @@ int main(int argc, char** argv){
             break;
         case 's':
             sub::SubMenu();
+            break;
+        case 'r':
+            caesar::run_reverse();
             break;
         default:
             help();
