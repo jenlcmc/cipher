@@ -102,29 +102,36 @@ std::string vigenere::remove_space(std::string& message){
     return message;
 }
 
+void vigenere::displayVigenere(){
+    //main menu
+    std::cout << std::endl;
+    std::cout << " ____    ____  __    _______  _______ .__   __.  _______ .______       _______ \n"
+              << " |   |  /   / |  |  /  _____||   ____||  | |  | |   ____||   _  |     |   ____| \n"
+              << "  |   ||   /  |  | |  |  __  |  |__   |   ||  | |  |__   |  |_)  |    |  |__   \n"
+              << "   |      /   |  | |  | |_ | |   __|  |  . `  | |   __|  |      /     |   __|  \n"
+              << "    |    /    |  | |  |__| | |  |____ |  ||   | |  |____ |  ||  |----.|  |____ \n"
+              << "     |__/     |__|  |______| |_______||__| |__| |_______|| _| `._____||_______| \n" << std::endl;
+    std::cout << std::endl;
+    std::cout << "E/e - Encryption \n";
+    std::cout << "D/e - Decryption \n";
+    std::cout << "Q/q - Quit\n";
+}
+
 /**VigenereMenu - user interface
  * return void
 */
 void vigenere::VigenereMenu(){
     char answer;
     char choice;
-    std::string messages;
-    std::string key;
-    std::string newKey;
-    std::string encryptMessages;
-    std::string encryptMess;
-    std::string UserKey;
-    std::string decryptMess;
+    std::string messages, encryptMessages, encryptMess, decryptMess;
+    std::string key, newKey, UserKey;
+
     //use app to append and not overwrite when start again
     std::ofstream newfile("./Text_Files/encryptFile.txt", std::fstream::app);
     std::ofstream DecryptFile("./Text_Files/decryptFile.txt", std::fstream::app);
     std::ofstream keyFile("./Text_Files/keyFile.txt", std::fstream::app);
 
-    //main menu
-    std::cout << "Hello, Welcome to Vigenere Cipher \n";
-    std::cout << "For Encryption: choose E/e \n";
-    std::cout << "For Decryption: choose D/e \n";
-    std::cout << "To quit the program: choose Q/q \n";
+    displayVigenere();
     std::cin >> answer;
 
     switch(toupper(answer))
@@ -132,9 +139,10 @@ void vigenere::VigenereMenu(){
     //encrypt choice
     case 'E':
     do{
-        std::cout << "Please enter messages you want to encrypt. No space\n";
+        std::cout << std::endl;
+        std::cout << "Please enter messages you want to encrypt.No space\n";
         std::cin >> messages;
-        std::cout << "Please also enter the key you want to generate.  No space\n";
+        std::cout << "Please also enter the key you want to generate.No space\n";
         std::cin >> key;
         //remove whitespace
         messages = remove_space(messages);
@@ -144,6 +152,7 @@ void vigenere::VigenereMenu(){
         encryptMessages = Encrypt(messages, newKey);
         
         //ask if user want to write encrypted messages into txt file or not
+        std::cout << std::endl;
         std::cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
         std::cin >> answer;
         if(answer == 'y' || answer == 'Y'){
@@ -156,14 +165,20 @@ void vigenere::VigenereMenu(){
 		}
 
         //ask user if they want to continue or not
+        std::cout << std::endl;
         std::cout << "(Q/q) to quit and (C/c) for continue another encrypt" << std::endl;
         std::cin >> answer;
+
+        if(answer == 'Q' || answer == 'q'){
+            return;
+        }
     }while(answer == 'c' || answer == 'C');
     break;
 
     //decrypt choice
     case 'D':
     do{
+        std::cout << std::endl;
         std::cout << "Please enter messages you want to decrypt.  No space\n";
         std::cin >> encryptMess;
         std::cout << "Please also enter the key. No space \n";
@@ -175,29 +190,35 @@ void vigenere::VigenereMenu(){
         decryptMess = Decrypt(encryptMess, UserKey);
         
         //ask if user want to write encrypted messages into txt file or not
+        std::cout << std::endl;
         std::cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
         std::cin >> answer;
         if(answer == 'y' || answer == 'Y'){
-                DecryptFile << decryptMess << '\n';
+            DecryptFile << decryptMess << '\n';
 		}
         if(answer == 'n' || answer == 'N'){
-            DecryptFile << "Decrypt message: " << decryptMess << '\n';
+            std::cout << "Decrypt message: " << decryptMess << '\n';
 		}
 
         //ask user if they want to continue or not
+        std::cout << std::endl;
         std::cout << "(Q/q) to quit and (C/c) for continue another decrypt" << std::endl;
         std::cin >> answer;
+
+        if(answer == 'Q' || answer == 'q'){
+            return;
+        }
     }while(answer == 'c' || answer == 'C');
     break;
 
     //if user choice q, then quit the program
     case 'Q':
-        std::cout << "Quite the program. Thank you for using Vigenere Cipher \n" << std::endl;
-        break;
+        std::cout << std::endl;
+        std::cout << "Thank you for using Vigenere Cipher \n";
+        return;
 
     default:
-        std::cout << "Wrong choice. Please enter the choice again '\n";
-        std::cin >> answer;
+        std::cout << "Wrong choice. Start again\n";
         break;
     }
 }

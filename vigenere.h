@@ -7,6 +7,7 @@
 #include <fstream>
 namespace vigenere{
 void VigenereMenu();
+void displayVigenere();
 std::string makeKey(std::string&, std::string&);
 std::string Encrypt(std::string&, std::string&);
 std::string Decrypt(std::string&, std::string&);
