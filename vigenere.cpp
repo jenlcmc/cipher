@@ -9,16 +9,15 @@
 **/
 
 std::string vigenere::makeKey(std::string& UserInput, std::string& key){
-    int UserSize = UserInput.length();
     //make them upper
     UserInput = Uppercase(UserInput);
     key = Uppercase(key);
 
     for(int i = 0; ; i++){
-        if(key.length() == UserSize){
+        if(key.length() == UserInput.length()){
             break;
         }
-        if(UserSize == i){
+        if(UserInput.length() == i){
             i = 0;
         }
         key.push_back(key[i]);
@@ -140,10 +139,9 @@ void vigenere::VigenereMenu(){
     case 'E':
     do{
         std::cout << std::endl;
-        std::cout << "Please enter messages you want to encrypt.No space\n";
-        std::cin >> messages;
-        std::cout << "Please also enter the key you want to generate.No space\n";
-        std::cin >> key;
+        std::cout << "Enter messages to encrypt follow by key (no space) \n";
+        std::cin >> messages >> key;
+
         //remove whitespace
         messages = remove_space(messages);
         key = remove_space(key);
@@ -155,13 +153,14 @@ void vigenere::VigenereMenu(){
         std::cout << std::endl;
         std::cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
         std::cin >> answer;
+
         if(answer == 'y' || answer == 'Y'){
             keyFile << "key for the file: " << newKey << '\n';
             newfile << encryptMessages << std::endl;
 		}
         if(answer == 'n' || answer == 'N'){
-            std::cout <<"key for the decrypt: " << newKey << std::endl;
-            std::cout << "Encrypted messages " << encryptMessages << std::endl;
+            std::cout << std::endl <<"key for the decrypt: " << newKey << std::endl;
+            std::cout << "Encrypted messages " << encryptMessages << std::endl << std::endl;
 		}
 
         //ask user if they want to continue or not
@@ -179,10 +178,8 @@ void vigenere::VigenereMenu(){
     case 'D':
     do{
         std::cout << std::endl;
-        std::cout << "Please enter messages you want to decrypt.  No space\n";
-        std::cin >> encryptMess;
-        std::cout << "Please also enter the key. No space \n";
-        std::cin >> UserKey;
+        std::cout << "Enter messages to decrypt follow by key (no space) \n";
+        std::cin >> encryptMess >> UserKey;
 
         encryptMess = remove_space(encryptMess);
         UserKey = remove_space(UserKey);
@@ -193,11 +190,12 @@ void vigenere::VigenereMenu(){
         std::cout << std::endl;
         std::cout << "Do you want to print the messages to txt file? (y/Y) or (n/N)\n";
         std::cin >> answer;
+
         if(answer == 'y' || answer == 'Y'){
             DecryptFile << decryptMess << '\n';
 		}
         if(answer == 'n' || answer == 'N'){
-            std::cout << "Decrypt message: " << decryptMess << '\n';
+            std::cout << std::endl << "Decrypt message: " << decryptMess << '\n';
 		}
 
         //ask user if they want to continue or not

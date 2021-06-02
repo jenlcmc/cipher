@@ -11,3 +11,7 @@ vigenere.o: ./h_files/vigenere.h
 subcipher.o: ./h_files/subcipher.h
 
 caesar.o: ./h_files/caesar.h
+
+clean: 
+	rm *.o
+	rm main
