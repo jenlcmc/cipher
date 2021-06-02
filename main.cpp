@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
-#include "caesar.h"
-#include "subcipher.h"
-#include "vigenere.h"
+#include "./h_files/caesar.h"
+#include "./h_files/vigenere.h"
+#include "./h_files/subcipher.h"
 
 static void help();
 

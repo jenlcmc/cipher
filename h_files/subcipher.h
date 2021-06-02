@@ -12,4 +12,5 @@ std::string Decrypt(std::string&, unsigned int);
 std::string remove_space(std::string& message);
 void SubMenu();
 void displaySub();
+void ASCII();
 };

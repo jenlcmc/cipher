@@ -1,4 +1,4 @@
-#include "subcipher.h"
+#include "./h_files/subcipher.h"
 
 //using namespace std;
 /**Encrypt- shift each character the user input by key letter
@@ -60,6 +60,16 @@ std::string sub::remove_space(std::string& message){
     return message;
 }
 
+void sub::ASCII(){
+    std::cout << "   _____ __ __  ____  \n " <<
+                "    / ___/|  |  ||    | \n " << 
+                "       |_ |  |  ||  o  ) \n" <<
+                "    |__  ||  |  ||     | \n" <<
+                "    /  | ||  :  ||  O  | \n" <<
+                "    |    ||     ||     | \n" <<
+                "     |___| |__,_||_____| \n" << std::endl;
+}
+
 /**VigenereMenu - user interface
  * return void
 */
@@ -75,7 +85,7 @@ void sub::SubMenu(){
     std::ofstream keyFile("./Text_Files/keyFileSub.txt", std::fstream::app);
 
     //main menu
-    std::cout << std::endl << "Welcome to Substitution Cipher menu" << std::endl;
+    ASCII();
     std::cout << "Enter (E/e) for encrypt" << std::endl;
     std::cout << "Enter (D/d) for decrypt" << std::endl;
     std::cout << "Enter (Q/q) to quit" << std::endl;

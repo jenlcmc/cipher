@@ -1,4 +1,4 @@
-#include "vigenere.h"
+#include "./h_files/vigenere.h"
 
 /**makeKey - generate a new key
  * equal to length of orginial input
