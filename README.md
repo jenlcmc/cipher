@@ -11,5 +11,7 @@ Should produce a main file if not already in folder:
 
     ./main
 
-To remove .o and main file after use:
+**To remove .o and main file after use:**
+```
     make clean
+```
