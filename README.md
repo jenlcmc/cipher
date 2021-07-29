@@ -30,3 +30,7 @@ Should produce a main file if not already in folder:
 _issues with using {} initialization on OSX compilers that does not use GDB_
 
 _untested with MSVC compilers_
+
+## Upcoming Features
+- Read file and decode or encode
+- Add XOR cipher 
