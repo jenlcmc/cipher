@@ -1,0 +1,7 @@
+#C++ compile object files 
+*.o   
+*.exe
+*.out
+
+#macos general
+.DS_Store

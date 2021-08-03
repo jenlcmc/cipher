@@ -15,6 +15,10 @@ Should produce a main file if not already in folder:
 
     ./main
 
+**To remove .o and main file after use:**
+```
+    make clean
+```
 ## Remove VSCode folders
 
 .vscode folders are used for running and debugging within the VS Code text editor
