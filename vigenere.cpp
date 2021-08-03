@@ -139,7 +139,7 @@ void vigenere::VigenereMenu(){
     case 'E':
     do{
         std::cout << std::endl;
-        std::cout << "Enter messages to encrypt follow by key (no space) \n";
+        std::cout << "Enter messages to encrypt follow by key (no space between messages) \n";
         std::cin >> messages >> key;
 
         //remove whitespace
@@ -178,7 +178,7 @@ void vigenere::VigenereMenu(){
     case 'D':
     do{
         std::cout << std::endl;
-        std::cout << "Enter messages to decrypt follow by key (no space) \n";
+        std::cout << "Enter messages to decrypt follow by key (no space between message) \n";
         std::cin >> encryptMess >> UserKey;
 
         encryptMess = remove_space(encryptMess);
